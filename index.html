@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redireccionador</title>
+    <script>
+        // Definir las rutas de redirección en un objeto
+        var rutasQR = {
+            "1": "https://drive.google.com/file/d/1XHSalnmBU47VplQqNLSpfriww75CQIHb/view?usp=drive_link", //cartel_hakuna
+            "2": "https://drive.google.com/file/d/1LRPjOA8vtrhRAW8uwzo74KMbxXkwtET_/view?usp=drive_link", //cancionero
+            // Puedes seguir añadiendo más rutas aquí
+        };
+
+        window.onload = function() {
+            // Obtener la URL actual
+            var url = window.location.href;
+
+            // Extraer el último segmento de la URL
+            var segmento = url.split("/").pop();
+
+            // Verificar si el segmento existe en el objeto de rutas
+            if (rutasQR[segmento]) {
+                // Redirigir a la URL correspondiente
+                window.location.href = rutasQR[segmento];
+            } else {
+                // Si no hay coincidencia, mostrar un mensaje o redirigir a una página de error
+                document.body.innerHTML = "<h1>URL no encontrada</h1>";
+            }
+        };
+    </script>
+</head>
+<body>
+    <!-- El contenido se reemplaza si no se encuentra una coincidencia -->
+</body>
+</html>
