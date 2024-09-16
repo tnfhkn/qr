@@ -13,16 +13,13 @@
         };
 
         window.onload = function() {
-            // Obtener la URL actual
-            var url = window.location.href;
+            // Obtener el hash de la URL (después del #)
+            var hash = window.location.hash.substring(1); // Remover el # inicial
 
-            // Extraer el último segmento de la URL
-            var segmento = url.split("/").pop();
-
-            // Verificar si el segmento existe en el objeto de rutas
-            if (rutasQR[segmento]) {
+            // Verificar si el hash existe en el objeto de rutas
+            if (rutasQR[hash]) {
                 // Redirigir a la URL correspondiente
-                window.location.href = rutasQR[segmento];
+                window.location.href = rutasQR[hash];
             } else {
                 // Si no hay coincidencia, mostrar un mensaje o redirigir a una página de error
                 document.body.innerHTML = "<h1>URL no encontrada</h1>";
