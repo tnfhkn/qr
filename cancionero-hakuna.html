@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <title>Cancionero Hakuna</title>
+
+</head>
+<body>
+    <iframe src="/cancionero-hakuna-24-25/CANCIONEROHAKUNA2425.html" frameborder="0"></iframe>
+</body>
+
+<style>
+
+* {
+  outline: 1px solid red;  /* Highlight every element's boundary */
+  outline: 0px;
+}
+
+
+html, body {
+    scroll-snap-type: none;
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-y: hidden;
+    width: auto;
+
+    height: 100%;
+}
+
+iframe {
+  /*DIN A4 Cambiar esto si no es así*/
+    display: block;
+    min-width: 223mm;
+    min-height: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+}
+
+@media only screen and (max-width: 768px) {
+/* AQUI PARA CAMBIAR EL ZOOM DE LA PÁGINA*/
+  iframe {
+    zoom: 0.5
+  }
+}
+@media only screen and (min-width: 768px) {
+    html, body {
+        display: flex;
+        justify-content: center;
+    }
+}
+@media (prefers-color-scheme: dark) {
+    html {
+        filter: invert(1)
+    }
+}
+
+</style>
+
+</html>

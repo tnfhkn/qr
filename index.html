@@ -3,31 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redireccionador</title>
-    <script>
-        // Definir las rutas de redirección en un objeto
-        var rutasQR = {
-            "1": "/cartel-hakuna.png", //cartel_hakuna
-            "2": "https://drive.google.com/file/d/1LRPjOA8vtrhRAW8uwzo74KMbxXkwtET_/view?usp=drive_link", //cancionero
-            // Puedes seguir añadiendo más rutas aquí
-        };
-
-        window.onload = function() {
-            // Obtener el hash de la URL (después del #)
-            var hash = window.location.hash.substring(1); // Remover el # inicial
-
-            // Verificar si el hash existe en el objeto de rutas
-            if (rutasQR[hash]) {
-                // Redirigir a la URL correspondiente
-                window.location.href = rutasQR[hash];
-            } else {
-                // Si no hay coincidencia, mostrar un mensaje o redirigir a una página de error
-                document.body.innerHTML = "<h1>URL no encontrada</h1>";
-            }
-        };
-    </script>
+    <title>Hakuna Tenerife</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <script type="module" crossorigin src="/assets/index-C7bniZe1.js"></script>
 </head>
 <body>
     <!-- El contenido se reemplaza si no se encuentra una coincidencia -->
+    <div id="message"></div>
+    <div id="pdf-container">
+        <canvas id="pdf-canvas"></canvas>
+      </div>      
 </body>
+<style>
+    #pdf-canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#pdf-container {
+  overflow: auto;
+  width: 100%;
+  max-height: 100vh; /* Set a max-height to enable scrolling */
+}
+
+</style>
 </html>
