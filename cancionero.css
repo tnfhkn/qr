@@ -61,7 +61,8 @@ body {
   #main-container {
     transform: scale(0.75);
     position: relative;
-    top: -50px
+    top: 10px;
+    -webkit-transform: translateY(0px);
   }
 }
 /* Mobile */
@@ -69,7 +70,9 @@ body {
   #main-container {
     transform: scale(0.4);
     position: relative;
-    top: -300px;
+    top: -10px;
+    /* Excuse me what the actual fuck. */
+    -webkit-transform: scale(0.4) translateY(-29550px);
   }
   img {
     zoom:0.95 !important
