@@ -10,6 +10,7 @@ body {
   justify-content: center;
   margin: 0;
   padding: 0 !important;
+  
 }
 
 #main-container {
@@ -26,21 +27,21 @@ body {
   z-index: 99; /* Make sure it does not overlap */
   border: none; /* Remove borders */
   outline: none; /* Remove outline */
-  background-color: #555; /* Dark background */
+  background-color: hsla(0, 0%, 33%, 0); /* Dark background */
   color: white; /* Text color */
   cursor: pointer; /* Add a pointer cursor on hover */
   padding: 5px; /* Some padding */
   border-radius: 15px; /* Rounded corners */
-  font-size: 35px; /* Increase font size */
   opacity: 0; /* Invisible initially */
   transform: translateY(50px); /* Slightly move down initially */
-  visibility: hidden; /* Make sure it's hidden from tab navigation */
-  transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth animations */
+  visibility: visible; /* Make sure it's hidden from tab navigation */
+  transition: opacity 0.5s ease, transform 0.5s linear(0 0%, 0 2.27%, 0.02 4.53%, 0.04 6.8%, 0.06 9.07%, 0.1 11.33%, 0.14 13.6%, 0.25 18.15%, 0.39 22.7%, 0.56 27.25%, 0.77 31.8%, 1 36.35%, 0.89 40.9%, 0.85 43.18%, 0.81 45.45%, 0.79 47.72%, 0.77 50%, 0.75 52.27%, 0.75 54.55%, 0.75 56.82%, 0.77 59.1%, 0.79 61.38%, 0.81 63.65%, 0.85 65.93%, 0.89 68.2%, 1 72.7%, 0.97 74.98%, 0.95 77.25%, 0.94 79.53%, 0.94 81.8%, 0.94 84.08%, 0.95 86.35%, 0.97 88.63%, 1 90.9%, 0.99 93.18%, 0.98 95.45%, 0.99 97.73%, 1 100%); 
+  /* Smooth animations. Bouncing animations enabled*/
 }
-
-/* Button hover effect */
-#scrollTopBtn:hover {
-  background-color: #333; /* Darker background on hover */
+/* Icon inside button */
+#scrollTopBtn > svg{
+  width: 5em;
+  height: auto;
 }
 
 /* Button appears (visible) */
@@ -54,33 +55,32 @@ body {
 #scrollTopBtn.hide {
   opacity: 0;
   transform: translateY(50px); /* Move down slightly before disappearing */
-  visibility: hidden; /* Hide it visually */
+  pointer-events: none;
 }
 
-@media only screen and (max-width: 865px) {
+@media screen and (max-device-width: 850px) {
   #main-container {
-    transform: scale(0.75);
-    position: relative;
-    top: 10px;
-    -webkit-transform: translateY(0px);
+
   }
 }
 /* Mobile */
-@media only screen and (max-width: 600px) {
+/* max-width = value * 1/viewport-initial-scale*/
+/* In this case, it's 3x bigger!! */
+@media screen and (max-device-width: 600px) {
   #main-container {
-    transform: scale(0.4);
-    position: relative;
-    top: -10px;
-    /* Excuse me what the actual fuck. */
-    -webkit-transform: scale(0.4) translateY(-29550px);
+    min-width: 1000px;
   }
-  img {
-    zoom:0.95 !important
+  #scrollTopBtn > svg{
+    width: 10em;
+    height: auto;
   }
 }
 @media (prefers-color-scheme:dark){
   html {
-    filter: invert(1)
+    filter: invert(1);
+  }
+  #main-content {
+    background-color: black;
   }
   img {
     filter: invert(1)

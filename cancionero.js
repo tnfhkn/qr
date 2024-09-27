@@ -26,3 +26,4 @@ function scrollToTop() {
     behavior: 'smooth' // Smooth scroll
   });
 }
+
