@@ -57,7 +57,24 @@ body {
   transform: translateY(50px); /* Move down slightly before disappearing */
   pointer-events: none;
 }
-
+#download-btn {
+  position: fixed; /* Fixed/sticky position */
+  bottom: 90px; /* Place the button at the bottom */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: hsla(0, 0%, 33%, 0); /* Dark background */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a pointer cursor on hover */
+  padding: 5px; /* Some padding */
+  border-radius: 15px; /* Rounded corners */
+}
+#download-btn > svg {
+  width: 5em;
+  height: auto;
+  filter: brightness()
+}
 @media screen and (max-device-width: 850px) {
   #main-container {
 
@@ -73,6 +90,12 @@ body {
   #scrollTopBtn > svg{
     width: 10em;
     height: auto;
+  }
+  #download-btn {
+    bottom: 190px
+  }
+  #download-btn > svg {
+    width: 10em
   }
 }
 @media (prefers-color-scheme:dark){

@@ -27,3 +27,24 @@ function scrollToTop() {
   });
 }
 
+// Download as PDF
+
+document.getElementById('download-btn').addEventListener('click', function() {
+    // Create a new jsPDF instance
+    const jspdf = require ('jspdf');
+    const { jsPDF } = window.jspdf;
+
+    const doc = new jsPDF();
+
+    // Get the content of the div
+    const content = document.getElementById('main-container');
+    
+    // Extract text content
+    const text = content.innerText;
+    
+    // Add text to PDF
+    doc.text(text, 10, 10);
+    
+    // Save the PDF
+    doc.save('downloaded-content.pdf');
+});
