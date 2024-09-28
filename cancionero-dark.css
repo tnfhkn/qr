@@ -1,0 +1,13 @@
+body {
+    background-color: black !important
+  }
+  p {
+    filter:invert(1);
+  }
+  /* Exclude Images with the "invert" alt*/
+  [alt*="invert"]{
+    filter:invert(1)
+  }
+  button {
+    filter:invert(1)
+  }

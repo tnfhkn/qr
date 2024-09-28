@@ -3,10 +3,8 @@
 
 // Scroll To Top
 
-// Get the button
-let scrollTopBtn = document.getElementById("scrollTopBtn");
 
-// Show the button when the user scrolls down 20px from the top
+let scrollTopBtn = document.getElementById("scrollTopBtn");
 window.onscroll = function() { scrollFunction(); };
 
 function scrollFunction() {
@@ -19,7 +17,6 @@ function scrollFunction() {
   }
 }
 
-// Smooth scrolling to the top when the user clicks the button
 function scrollToTop() {
   window.scrollTo({
     top: 0,
@@ -48,3 +45,49 @@ document.getElementById('download-btn').addEventListener('click', function() {
     // Save the PDF
     doc.save('downloaded-content.pdf');
 });
+
+
+// Dark - Light mode
+
+const toggleButton = document.getElementById('dark-mode-toggle');
+const darkThemeLink = document.getElementById('dark-theme'); // Ensure this matches your HTML
+
+function applyTheme(theme) {
+    // Fallback check
+    if (!darkThemeLink) {
+        console.error("Dark theme link element not found.");
+        return;
+    }
+
+    if (theme === 'dark') {
+        darkThemeLink.removeAttribute('disabled'); // Enable dark.css
+    } else {
+        darkThemeLink.setAttribute('disabled', 'true'); // Disable dark.css
+    }
+}
+
+function toggleTheme() {
+    const isDarkThemeActive = darkThemeLink.getAttribute('disabled') === null; // Check if dark mode is active
+    const newTheme = isDarkThemeActive ? 'light' : 'dark'; // Toggle to the opposite theme
+    applyTheme(newTheme);
+
+    // Save user's preference in localStorage
+    localStorage.setItem('theme', newTheme);
+}
+
+// Toggle between light and dark modes when the button is clicked
+toggleButton.addEventListener('click', toggleTheme);
+
+// On page load, check for saved theme in localStorage or use system preference
+window.onload = () => {
+    const savedTheme = localStorage.getItem('theme');
+
+    if (savedTheme) {
+        applyTheme(savedTheme); // Use saved theme
+    } else {
+        // If no theme is saved, check the system preference and apply accordingly
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const defaultTheme = prefersDarkScheme ? 'dark' : 'light';
+        applyTheme(defaultTheme);
+    }
+};

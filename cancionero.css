@@ -22,7 +22,7 @@ body {
 /* Basic button styling */
 #scrollTopBtn {
   position: fixed; /* Fixed/sticky position */
-  bottom: 20px; /* Place the button at the bottom */
+  bottom: 160px; /* Place the button at the bottom */
   right: 30px; /* Place the button 30px from the right */
   z-index: 99; /* Make sure it does not overlap */
   border: none; /* Remove borders */
@@ -33,7 +33,7 @@ body {
   padding: 5px; /* Some padding */
   border-radius: 15px; /* Rounded corners */
   opacity: 0; /* Invisible initially */
-  transform: translateY(50px); /* Slightly move down initially */
+  transform: translateX(50px); /* Slightly move down initially */
   visibility: visible; /* Make sure it's hidden from tab navigation */
   transition: opacity 0.5s ease, transform 0.5s linear(0 0%, 0 2.27%, 0.02 4.53%, 0.04 6.8%, 0.06 9.07%, 0.1 11.33%, 0.14 13.6%, 0.25 18.15%, 0.39 22.7%, 0.56 27.25%, 0.77 31.8%, 1 36.35%, 0.89 40.9%, 0.85 43.18%, 0.81 45.45%, 0.79 47.72%, 0.77 50%, 0.75 52.27%, 0.75 54.55%, 0.75 56.82%, 0.77 59.1%, 0.79 61.38%, 0.81 63.65%, 0.85 65.93%, 0.89 68.2%, 1 72.7%, 0.97 74.98%, 0.95 77.25%, 0.94 79.53%, 0.94 81.8%, 0.94 84.08%, 0.95 86.35%, 0.97 88.63%, 1 90.9%, 0.99 93.18%, 0.98 95.45%, 0.99 97.73%, 1 100%); 
   /* Smooth animations. Bouncing animations enabled*/
@@ -47,19 +47,19 @@ body {
 /* Button appears (visible) */
 #scrollTopBtn.show {
   opacity: 1;
-  transform: translateY(0); /* Move to its normal position */
+  transform: translateX(0); /* Move to its normal position */
   visibility: visible; /* Make it focusable */
 }
 
 /* Button disappears (invisible) */
 #scrollTopBtn.hide {
   opacity: 0;
-  transform: translateY(50px); /* Move down slightly before disappearing */
+  transform: translateX(50px); /* Move down slightly before disappearing */
   pointer-events: none;
 }
 #download-btn {
   position: fixed; /* Fixed/sticky position */
-  bottom: 90px; /* Place the button at the bottom */
+  bottom: 20px; /* Place the button at the bottom */
   right: 30px; /* Place the button 30px from the right */
   z-index: 99; /* Make sure it does not overlap */
   border: none; /* Remove borders */
@@ -75,11 +75,31 @@ body {
   height: auto;
   filter: brightness()
 }
+#dark-mode-toggle {
+  position: fixed;
+  bottom: 90px;
+  right: 30px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 15px
+}
+#dark-mode-toggle > svg {
+  width: 5em;
+  height: auto;
+}
+/*iPAD = 850px*/ 
+/*
 @media screen and (max-device-width: 850px) {
   #main-container {
 
   }
 }
+*/
+
 /* Mobile */
 /* max-width = value * 1/viewport-initial-scale*/
 /* In this case, it's 3x bigger!! */
@@ -87,25 +107,21 @@ body {
   #main-container {
     min-width: 1000px;
   }
+  #scrollTopBtn {
+    bottom: 400px
+  }
   #scrollTopBtn > svg{
     width: 10em;
     height: auto;
   }
-  #download-btn {
-    bottom: 190px
+  
+  #download-btn{
+    bottom: 250px
   }
   #download-btn > svg {
     width: 10em
   }
-}
-@media (prefers-color-scheme:dark){
-  html {
-    filter: invert(1);
-  }
-  #main-content {
-    background-color: black;
-  }
-  img {
-    filter: invert(1)
+  #dark-mode-toggle > svg{
+    width: 10em
   }
 }
